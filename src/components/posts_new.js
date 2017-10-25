@@ -26,7 +26,7 @@ class PostsNew extends Component {
 
   onSubmit(values) {
     this.props.createPost(values, () => {
-      this.props.history.push('/');      
+      this.props.history.push('/');
     });
   }
 
@@ -34,25 +34,28 @@ class PostsNew extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <Field
-          label="Title :"
-          name="title"
-          component={this.renderField}
-        />
-        <Field
-          label="Categories :"
-          name="categories"
-          component={this.renderField}
-        />
-        <Field
-          label="Post Content :"
-          name="content"
-          component={this.renderField}
-        />
-        <button type="submit" className="btn btn-primary">Submit!</button>
-        <Link className="btn btn-danger" to="/">Cancel</Link>
-      </form>
+      <div>
+        <h3 className="new-title">Create a new post!</h3>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Field
+            label="Title :"
+            name="title"
+            component={this.renderField}
+          />
+          <Field
+            label="Categories :"
+            name="categories"
+            component={this.renderField}
+          />
+          <Field
+            label="Post Content :"
+            name="content"
+            component={this.renderField}
+          />
+          <button type="submit" className="btn btn-primary">Submit!</button>
+          <Link className="btn btn-danger" to="/">Cancel</Link>
+        </form>
+      </div>
     );
   }
 }
